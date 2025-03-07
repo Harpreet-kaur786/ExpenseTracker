@@ -8,7 +8,7 @@ const ProfileScreen = ({ navigation, route }) => {
   const { transactions } = route.params || [];
   const [isCalculatorVisible, setCalculatorVisible] = useState(false);
   const [profilePic, setProfilePic] = useState(null);
-  const [username, setUsername] = useState('John Doe'); // Default username
+  const [username, setUsername] = useState('Admin'); 
 
   const toggleCalculator = () => {
     setCalculatorVisible(!isCalculatorVisible);
@@ -72,44 +72,42 @@ const ProfileScreen = ({ navigation, route }) => {
         </TouchableOpacity>
       </View>
 
-      {/* User Info Section */}
+      {/* User Info Section
       <View style={styles.userInfo}>
         <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
           <Text style={styles.logoutButtonText}>Logout</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
+<View style={styles.navbar}>
+  <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('Dashboard')}>
+    <FontAwesome5 name="home" size={25} color="#007b83" />
+    <Text style={styles.navButtonText}>Home</Text>
+  </TouchableOpacity>
 
-      {/* Navigation Buttons */}
-      <View style={styles.navbar}>
-        <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('Dashboard')}>
-          <FontAwesome5 name="home" size={25} color="#8e44ad" />
-          <Text style={styles.navButtonText}>Home</Text>
-        </TouchableOpacity>
+  {/* <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('AllTransactionsScreen', { transactions })}>
+    <FontAwesome5 name="list" size={25} color="#007b83" />
+    <Text style={styles.navButtonText}>Transaction</Text>
+  </TouchableOpacity> */}
 
-        <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('AllTransactionsScreen', { transactions })}>
-          <FontAwesome5 name="list" size={25} color="#8e44ad" />
-          <Text style={styles.navButtonText}>Transaction</Text>
-        </TouchableOpacity>
+  <View style={styles.addButtonContainer}>
+    <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('AddTransactionScreen')}>
+      <FontAwesome5 name="plus" size={24} color="white" />
+    </TouchableOpacity>
+  </View>
 
-        <View style={styles.addButtonContainer}>
-          <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('AddTransactionScreen')}>
-            <FontAwesome5 name="plus" size={24} color="white" />
-          </TouchableOpacity>
-        </View>
+  {/* <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('ProfileScreen')}>
+    <FontAwesome5 name="user" size={25} color="#007b83" />
+    <Text style={styles.navButtonText}>Profile</Text>
+  </TouchableOpacity> */}
 
-        <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('ProfileScreen')}>
-          <FontAwesome5 name="user" size={25} color="#8e44ad" />
-          <Text style={styles.navButtonText}>Profile</Text>
-        </TouchableOpacity>
+  <TouchableOpacity style={styles.navButton} onPress={toggleCalculator}>
+    <FontAwesome5 name="calculator" size={25} color="#007b83" />
+    <Text style={styles.navButtonText}>Calculator</Text>
+  </TouchableOpacity>
 
-        <TouchableOpacity style={styles.navButton} onPress={toggleCalculator}>
-          <FontAwesome5 name="calculator" size={25} color="#8e44ad" />
-          <Text style={styles.navButtonText}>Calculator</Text>
-        </TouchableOpacity>
-
-        {/* Show CalculatorModal when isCalculatorVisible is true */}
-        <CalculatorModal visible={isCalculatorVisible} onClose={toggleCalculator} />
-      </View>
+  {/* Show CalculatorModal when isCalculatorVisible is true */}
+  <CalculatorModal visible={isCalculatorVisible} onClose={toggleCalculator} />
+</View>
     </View>
   );
 };
@@ -192,12 +190,12 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 16,
   },
-navbar: { 
+  navbar: { 
     flexDirection: 'row', 
     justifyContent: 'space-around', 
     alignItems: 'center',
     paddingVertical: 10, 
-    backgroundColor: 'white', 
+    backgroundColor: '#F4F4F4', // Light background
     position: 'absolute', 
     bottom: 0, 
     width: '100%', 
@@ -209,6 +207,7 @@ navbar: {
     shadowOffset: { width: 0, height: -3 },
     shadowOpacity: 0.1,
     shadowRadius: 5,
+    marginLeft: 20,
   },
   
   navButton: { 
@@ -221,7 +220,7 @@ navbar: {
     bottom: 30,  
     left: "50%",
     transform: [{ translateX: -35 }],
-    backgroundColor: 'white',
+    backgroundColor: '#F4F4F4', 
     width: 70,
     height: 70,
     borderRadius: 35,
@@ -231,7 +230,7 @@ navbar: {
   },
 
   addButton: { 
-    backgroundColor: '#8e44ad', 
+    backgroundColor: '#007b83', 
     width: 60, 
     height: 60, 
     borderRadius: 30, 
@@ -243,14 +242,14 @@ navbar: {
   navButtonText: {
     fontSize: 12,             
     fontWeight: 'bold',       
-    color: '#aaa',        
+    color: '#aaa',  // Soft gray for inactive icon
     textAlign: 'center',      
     marginTop: 3,             
   },
 
   activeText: {
-    color: '#8e44ad',
-  }
+    color: '#8e44ad', // Active color matching branding
+  },
 });
 
 export default ProfileScreen;

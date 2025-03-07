@@ -95,7 +95,7 @@ const AllTransactionScreen = ({ route, navigation }) => {
   };
 
   const handleTransactionClick = (item) => {
-    navigation.navigate('TransactionDetailScreen', { transaction: item });
+    navigation.navigate('TransactionDetailsScreen', { transaction: item });
   };
 
   return (
@@ -132,33 +132,31 @@ const AllTransactionScreen = ({ route, navigation }) => {
           </TouchableOpacity>
         )}
       />
-
-     
- <View style={styles.navbar}>
+<View style={styles.navbar}>
   <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('Dashboard')}>
-    <FontAwesome5 name="home" size={25} color="#8e44ad" />
-   <Text style={styles.navButtonText}>Home</Text>
+    <FontAwesome5 name="home" size={25} color="#007b83" />
+    <Text style={styles.navButtonText}>Home</Text>
   </TouchableOpacity>
 
   <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('AllTransactionsScreen', { transactions })}>
-   <FontAwesome5 name="list" size={25} color="#8e44ad" />
+    <FontAwesome5 name="list" size={25} color="#007b83" />
     <Text style={styles.navButtonText}>Transaction</Text>
   </TouchableOpacity>
 
   <View style={styles.addButtonContainer}>
-   <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('AddTransactionScreen')}>
-     <FontAwesome5 name="plus" size={24} color="white" />
-  </TouchableOpacity>
+    <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('AddTransactionScreen')}>
+      <FontAwesome5 name="plus" size={24} color="white" />
+    </TouchableOpacity>
   </View>
 
- <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('ProfileScreen')}>
-   <FontAwesome5 name="user" size={25} color="#8e44ad" />
+  <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('ProfileScreen')}>
+    <FontAwesome5 name="user" size={25} color="#007b83" />
     <Text style={styles.navButtonText}>Profile</Text>
- </TouchableOpacity>
+  </TouchableOpacity>
 
- <TouchableOpacity style={styles.navButton} onPress={toggleCalculator}>
-    <FontAwesome5 name="calculator" size={25} color="#8e44ad" />
-   <Text style={styles.navButtonText}>Calculator</Text>
+  <TouchableOpacity style={styles.navButton} onPress={toggleCalculator}>
+    <FontAwesome5 name="calculator" size={25} color="#007b83" />
+    <Text style={styles.navButtonText}>Calculator</Text>
   </TouchableOpacity>
 
   {/* Show CalculatorModal when isCalculatorVisible is true */}
@@ -181,12 +179,13 @@ const styles = StyleSheet.create({
   transactionAmount: { fontSize: 16, fontWeight: 'bold' },
   income: { color: 'green' },
   expense: { color: 'red' },
+  
   navbar: { 
     flexDirection: 'row', 
     justifyContent: 'space-around', 
     alignItems: 'center',
     paddingVertical: 10, 
-    backgroundColor: 'white', 
+    backgroundColor: '#F4F4F4', // Light background
     position: 'absolute', 
     bottom: 0, 
     width: '100%', 
@@ -198,6 +197,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: -3 },
     shadowOpacity: 0.1,
     shadowRadius: 5,
+    marginLeft: 20,
   },
   
   navButton: { 
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
     bottom: 30,  
     left: "50%",
     transform: [{ translateX: -35 }],
-    backgroundColor: 'white',
+    backgroundColor: '#F4F4F4', 
     width: 70,
     height: 70,
     borderRadius: 35,
@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
   },
 
   addButton: { 
-    backgroundColor: '#8e44ad', 
+    backgroundColor: '#007b83', 
     width: 60, 
     height: 60, 
     borderRadius: 30, 
@@ -232,16 +232,15 @@ const styles = StyleSheet.create({
   navButtonText: {
     fontSize: 12,             
     fontWeight: 'bold',       
-    color: '#aaa',        
+    color: '#aaa',  // Soft gray for inactive icon
     textAlign: 'center',      
     marginTop: 3,             
   },
 
   activeText: {
-    color: '#8e44ad',
-  }
+    color: '#8e44ad', // Active color matching branding
+  },
  
 });
 
-export default AllTransactionScreen;
-zz
+export default AllTransactionScreen
