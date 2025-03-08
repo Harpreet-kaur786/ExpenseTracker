@@ -1,87 +1,3 @@
-
-// import React, { useState} from 'react';
-// import { View, Text, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
-// import CalculatorModal from './CalculatorModal';
-// import { FontAwesome5 } from '@expo/vector-icons';
-// const AllTransactionScreen = ({ route, navigation }) => {
-//   const { transactions } = route.params;  
-
-//   const handleTransactionClick = (item) => {
-//     navigation.navigate('TransactionDetailScreen', { transaction: item });
-//   };
-
-
-//   //Calculator const DashboardScreen = ({ navigation }) => {
-//     const [isCalculatorVisible, setCalculatorVisible] = useState(false);
-
-//     const toggleCalculator = () => {
-//       setCalculatorVisible(!isCalculatorVisible);
-//     };
-
-
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.headerText}>All Transactions</Text>
-//       <FlatList
-//         data={transactions}
-//         keyExtractor={(item) => item.id}
-//         renderItem={({ item }) => (
-//           <TouchableOpacity onPress={() => handleTransactionClick(item)}>
-//             <View style={styles.transactionItem}>
-//               <Text style={styles.transactionText}>
-//                 {item.type === 'Income' ? '⬆️' : '⬇️'} ₹{item.amount}
-//               </Text>
-//               <Text style={styles.transactionCategory}>{item.category}</Text>
-//             </View>
-//           </TouchableOpacity>
-//         )}
-//       />
-
-// <View style={styles.navbar}>
-//   <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('Dashboard')}>
-//     <FontAwesome5 name="home" size={25} color="#8e44ad" />
-//     <Text style={styles.navButtonText}>Home</Text>
-//   </TouchableOpacity>
-
-//   <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('AllTransactionsScreen', { transactions })}>
-//     <FontAwesome5 name="list" size={25} color="#8e44ad" />
-//     <Text style={styles.navButtonText}>Transaction</Text>
-//   </TouchableOpacity>
-
-//   <View style={styles.addButtonContainer}>
-//     <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('AddTransactionScreen')}>
-//       <FontAwesome5 name="plus" size={24} color="white" />
-//     </TouchableOpacity>
-//   </View>
-
-//   <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('ProfileScreen')}>
-//     <FontAwesome5 name="user" size={25} color="#8e44ad" />
-//     <Text style={styles.navButtonText}>Profile</Text>
-//   </TouchableOpacity>
-
-//   <TouchableOpacity style={styles.navButton} onPress={toggleCalculator}>
-//     <FontAwesome5 name="calculator" size={25} color="#8e44ad" />
-//     <Text style={styles.navButtonText}>Calculator</Text>
-//   </TouchableOpacity>
-
-//   {/* Show CalculatorModal when isCalculatorVisible is true */}
-//   <CalculatorModal visible={isCalculatorVisible} onClose={toggleCalculator} />
-// </View>
-//     </View>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   container: { flex: 1, padding: 20, backgroundColor: '#F4F4F4' },
-//   headerText: { fontSize: 24, fontWeight: 'bold', marginBottom: 20 },
-//   transactionItem: { padding: 10, backgroundColor: 'white', marginVertical: 5, borderRadius: 10 },
-//   transactionText: { fontSize: 16 },
-//   transactionCategory: { fontSize: 14, color: '#888' },
-
-
-
-
-
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -185,7 +101,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around', 
     alignItems: 'center',
     paddingVertical: 10, 
-    backgroundColor: '#F4F4F4', // Light background
+    backgroundColor: '#F4F4F4', 
     position: 'absolute', 
     bottom: 0, 
     width: '100%', 
@@ -238,7 +154,7 @@ const styles = StyleSheet.create({
   },
 
   activeText: {
-    color: '#8e44ad', // Active color matching branding
+    color: '#8e44ad', 
   },
  
 });
