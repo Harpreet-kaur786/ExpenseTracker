@@ -18,10 +18,10 @@ const DashboardScreen = ({ navigation }) => {
   const [currentDate, setCurrentDate] = useState('');
 
   const handleLogout = async () => {
-    // Clear the user session (you can use AsyncStorage for this)
-    await AsyncStorage.removeItem('isLoggedIn');  // Adjust this according to your auth system
 
-    // Navigate to the SignIn screen
+    await AsyncStorage.removeItem('isLoggedIn'); 
+
+
     navigation.navigate('SignIn');
   };
 
@@ -70,31 +70,31 @@ const DashboardScreen = ({ navigation }) => {
 const deleteTransaction = (transactionId) => {
   // Show a confirmation alert
   Alert.alert(
-    "Confirm Deletion",  // Title of the alert
-    "Are you sure you want to delete this transaction?",  // Message
+    "Confirm Deletion", 
+    "Are you sure you want to delete this transaction?",  
     [
       {
-        text: "Cancel", // Cancel button
+        text: "Cancel", 
         onPress: () => console.log("Deletion cancelled"),
         style: "cancel"
       },
       {
-        text: "Delete", // Delete button
+        text: "Delete", 
         onPress: async () => {
-          // Filter out the transaction to delete
+        
           const updatedTransactions = transactions.filter(item => item.id !== transactionId);
           
-          // Update the state with the new list of transactions
+         
           setTransactions(updatedTransactions);
           
-          // Update AsyncStorage with the new list
+        
           await AsyncStorage.setItem('transactions', JSON.stringify(updatedTransactions));
           
           console.log("Transaction deleted");
         }
       }
     ],
-    { cancelable: false }  // Prevent closing alert by tapping outside
+    { cancelable: false }  
   );
 
   
@@ -206,17 +206,17 @@ const deleteTransaction = (transactionId) => {
 
 export default DashboardScreen;
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#E8E8E8' }, // Slightly darker background
+  container: { flex: 1, backgroundColor: '#E8E8E8' }, 
   header: { 
     paddingHorizontal: 15,
-    backgroundColor: 'linear-gradient(to right, #4DCCAE, #FAF3E0)', // Gradient from soft teal to warm yellow
+    backgroundColor: 'linear-gradient(to right, #4DCCAE, #FAF3E0)', 
     borderBottomLeftRadius: 20, 
     borderBottomRightRadius: 20, 
     shadowColor: "#000", 
     shadowOffset: { width: 0, height: 1 }, 
     shadowOpacity: 0.1, 
     shadowRadius: 5, 
-    elevation: 4, // Subtle elevation for depth
+    elevation: 4, 
   },
   
   
@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6, 
     paddingHorizontal: 12, 
     backgroundColor: '#E74C3C', 
-    borderRadius: 12, // Consistent radius
+    borderRadius: 12, 
     borderWidth: 1, 
     borderColor: '#D63031',
     shadowColor: "#000", 
@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
   
   date: { 
     fontSize: 14, 
-    color: '#333', // Consistent color for text
+    color: '#333', 
     fontWeight: '500', 
     textAlign: 'center', 
   },
@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold', 
     textAlign: 'center', 
     marginTop: 8, 
-    color: '#333', // Consistent color for text
+    color: '#333', 
   },
   
   balanceInput: { 
@@ -277,7 +277,7 @@ const styles = StyleSheet.create({
   summaryBoxGreen: { 
     backgroundColor: '#2ECC71', 
     padding: 12, 
-    borderRadius: 15, // Uniform radius
+    borderRadius: 15, 
     shadowColor: "#000", 
     shadowOffset: { width: 0, height: 2 }, 
     shadowOpacity: 0.2, 
@@ -290,7 +290,7 @@ const styles = StyleSheet.create({
   summaryBoxRed: { 
     backgroundColor: '#E74C3C', 
     padding: 12, 
-    borderRadius: 15, // Uniform radius
+    borderRadius: 15, 
     shadowColor: "#000", 
     shadowOffset: { width: 0, height: 2 }, 
     shadowOpacity: 0.2, 
@@ -369,7 +369,7 @@ const styles = StyleSheet.create({
     padding: 12, 
     backgroundColor: '#FAF3E0', 
     marginVertical: 6, 
-    borderRadius: 15, // Consistent radius
+    borderRadius: 15, 
     borderWidth: 1, 
     borderColor: '#D1C5E4', 
     shadowColor: "#000", 
@@ -384,7 +384,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around', 
     alignItems: 'center',
     paddingVertical: 10, 
-    backgroundColor: '#F4F4F4', // Light background
+    backgroundColor: '#F4F4F4', 
     position: 'absolute', 
     bottom: 0, 
     width: '100%', 
@@ -430,12 +430,12 @@ const styles = StyleSheet.create({
   navButtonText: {
     fontSize: 12,             
     fontWeight: 'bold',       
-    color: '#aaa',  // Soft gray for inactive icon
+    color: '#aaa',  
     textAlign: 'center',      
     marginTop: 3,             
   },
 
   activeText: {
-    color: '#8e44ad', // Active color matching branding
+    color: '#8e44ad',
   },
 });

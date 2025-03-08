@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around', 
     alignItems: 'center',
     paddingVertical: 10, 
-    backgroundColor: '#F4F4F4', // Light background
+    backgroundColor: '#F4F4F4',
     position: 'absolute', 
     bottom: 0, 
     width: '100%', 
@@ -171,12 +171,12 @@ const styles = StyleSheet.create({
   navButtonText: {
     fontSize: 12,             
     fontWeight: 'bold',       
-    color: '#aaa',  // Soft gray for inactive icon
+    color: '#aaa',  
     textAlign: 'center',      
     marginTop: 3,             
   },
 
   activeText: {
-    color: '#8e44ad', // Active color matching branding
+    color: '#8e44ad', 
   },
 });

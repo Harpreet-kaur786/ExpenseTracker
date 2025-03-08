@@ -159,12 +159,12 @@ const AddTransactionScreen = ({ navigation, route }) => {
     
       <View style={styles.navbar}>
   <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('Dashboard')}>
-    <FontAwesome5 name="home" size={25} color="#8e44ad" />
+    <FontAwesome5 name="home" size={25} color="#007b83" />
     <Text style={styles.navButtonText}>Home</Text>
   </TouchableOpacity>
 
   <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('AllTransactionsScreen', { transactions })}>
-    <FontAwesome5 name="list" size={25} color="#8e44ad" />
+    <FontAwesome5 name="list" size={25} color="#007b83" />
     <Text style={styles.navButtonText}>Transaction</Text>
   </TouchableOpacity>
 
@@ -175,12 +175,12 @@ const AddTransactionScreen = ({ navigation, route }) => {
   </View>
 
   <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('ProfileScreen')}>
-    <FontAwesome5 name="user" size={25} color="#8e44ad" />
+    <FontAwesome5 name="user" size={25} color="#007b83" />
     <Text style={styles.navButtonText}>Profile</Text>
   </TouchableOpacity>
 
   <TouchableOpacity style={styles.navButton} onPress={toggleCalculator}>
-    <FontAwesome5 name="calculator" size={25} color="#8e44ad" />
+    <FontAwesome5 name="calculator" size={25} color="#007b83" />
     <Text style={styles.navButtonText}>Calculator</Text>
   </TouchableOpacity>
 
@@ -269,12 +269,13 @@ const styles = StyleSheet.create({
     elevation: 3,
     backgroundColor: '#ffffff',
   },
-   navbar: { 
+  
+  navbar: { 
     flexDirection: 'row', 
     justifyContent: 'space-around', 
     alignItems: 'center',
     paddingVertical: 10, 
-    backgroundColor: 'white', 
+    backgroundColor: '#F4F4F4',
     position: 'absolute', 
     bottom: 0, 
     width: '100%', 
@@ -298,7 +299,7 @@ const styles = StyleSheet.create({
     bottom: 30,  
     left: "50%",
     transform: [{ translateX: -35 }],
-    backgroundColor: 'white',
+    backgroundColor: '#F4F4F4', 
     width: 70,
     height: 70,
     borderRadius: 35,
@@ -308,7 +309,7 @@ const styles = StyleSheet.create({
   },
 
   addButton: { 
-    backgroundColor: '#8e44ad', 
+    backgroundColor: '#007b83', 
     width: 60, 
     height: 60, 
     borderRadius: 30, 
@@ -320,13 +321,13 @@ const styles = StyleSheet.create({
   navButtonText: {
     fontSize: 12,             
     fontWeight: 'bold',       
-    color: '#aaa',        
+    color: '#aaa',  
     textAlign: 'center',      
     marginTop: 3,             
   },
 
   activeText: {
-    color: '#8e44ad',
+    color: '#8e44ad', 
   },
   submitButton: {
     backgroundColor: '#28a745',
