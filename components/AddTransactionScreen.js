@@ -100,7 +100,7 @@ const AddTransactionScreen = ({ navigation, route }) => {
 
         <Text style={styles.label}>Transaction Type</Text>
         <TouchableOpacity style={styles.transactionButton} onPress={() => setModalVisible(true)}>
-          <Text style={styles.transactionText}>{transactionType}</Text>
+          <Text style={styles.transactionText}>{transactionType || "Select Transaction Type"}</Text>
         </TouchableOpacity>
 
         <Modal visible={modalVisible} animationType="slide" transparent>
@@ -151,6 +151,10 @@ const AddTransactionScreen = ({ navigation, route }) => {
             </View>
           </View>
         </Modal>
+        <TouchableOpacity style={styles.submitButton} onPress={handleAddTransaction}>
+  <Text style={styles.submitButtonText}>Submit Transaction</Text>
+</TouchableOpacity>
+
       </View>
     
       <View style={styles.navbar}>
@@ -323,7 +327,20 @@ const styles = StyleSheet.create({
 
   activeText: {
     color: '#8e44ad',
-  }
+  },
+  submitButton: {
+    backgroundColor: '#28a745',
+    padding: 15,
+    borderRadius: 10,
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  submitButtonText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  
 });
 
 export default AddTransactionScreen;
